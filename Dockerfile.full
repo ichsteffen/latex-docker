@@ -1,4 +1,9 @@
-FROM blang/latex:ctanbasic
-MAINTAINER Benedikt Lang <mail@blang.io>
+FROM --platform=linux/arm64 ichsteffen/latex:ctanbasic
+LABEL author="Benedikt Lang <mail@blang.io>"
+LABEL author="Steffen Späthe <steffen@spaethe.net>"
 
+# Verwende system mode für tlmgr
+#org RUN tlmgr install scheme-full
+# Initialisiere tlmgr user mode
+#RUN tlmgr init-usertree # im ctanbasic schon initialisiert
 RUN tlmgr install scheme-full
