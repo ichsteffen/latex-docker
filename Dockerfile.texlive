@@ -1,0 +1,12 @@
+FROM --platform=linux/arm64 ichsteffen/latex:ubuntu
+LABEL author="Benedikt Lang <mail@blang.io>"
+LABEL author="Steffen Späthe <steffen@spaethe.net>"
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get update -q && apt-get install -qy \
+    texlive-full \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /data
+VOLUME ["/data"]
